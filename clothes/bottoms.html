@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bottoms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="../js/jquery-3.6.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+</head>
+<script>
+    $(document).ready( function() {
+        $("#header").load("../include/header.html");
+        $("#footer").load("../include/footer.html");
+    });
+</script>
+<style>
+    @media screen and (max-width: 1719px){
+        #content_wrap {
+            padding: 0 5%;
+        }
+    }
+
+    .content_title { 
+        height: 70px;
+        width: 90%;
+    }
+
+    .content_title > h2, .content_title > div{
+        float: left; 
+        margin: 19px 20px 19px 0;
+    }
+
+    .content_title > div > ul { 
+        display: flex; 
+        line-height: 32px; 
+        gap: 20px;
+    }
+
+    .content_nav {
+        border-top: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+        height: 70px;
+    }
+
+    .on { display: block }
+
+    .off { display: none; }
+
+    .content_nav_left { float: left; line-height: 70px; }
+    
+    .content_nav_right { float: right; line-height: 70px;}
+
+    .content_nav_left > a {
+        padding-left: 30px;
+        font-size: 14px;
+        color: #111;
+        background: #fff url("../img/filter.svg") 0% center no-repeat;
+        background-size: 30px 20px;
+    }
+
+    .content_nav_right > div {
+        padding-right: 40px;
+        cursor: pointer;
+        height: 70px;
+        position: relative;
+    }
+
+    .content_nav_right > div::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background: #fff url("../img/fillter_down.svg") 0% center no-repeat;
+        width: 12px;
+        height: 6px;
+        margin-top: -3px;
+        background-size: 12px 6px;
+    }
+</style>
+<style>
+    .content_section { height: 540px; }
+
+    .main_section { margin: 20px 0; }
+
+    .main_section > ul { 
+        display: flex; 
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .main_section > ul > li:nth-child(n){ 
+        flex-grow: 1;
+    }
+
+    .main_section > ul > li:first-child{
+        margin-right: 10px;
+    }
+
+    .main_section > ul > li:not(:first-child, :last-child){
+        margin-right: 10px;
+    }
+
+    .thumbnail {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .description {
+        width: 300px;
+        height: 90px;
+        margin: 0 auto;
+        overflow: hidden;
+        font-size: 10px;
+    }
+
+    .description .name { margin: 5px 0; }
+
+    .description .price { margin-bottom: 5px; }
+
+    .description .price > li { display: inline-block; }
+
+    .description .color {
+        height: 10px;
+        margin-top: 5px;
+        overflow: hidden;
+    }
+
+    .description .color > span {
+        float: left;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #d2d2d2;
+        box-sizing: border-box;
+    }
+
+    .description .color > span:first-child {
+        background-color: #000;
+    }
+
+    .description .color > span:last-child {
+        background-color: #fffff0;
+    }
+
+    .sale_txt {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #3a1150;
+        color: #fff;
+        font-size: 10px;
+        border-radius: 0 0 0 5px;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .prdImg {
+        width: 300px;
+        height: 400px;
+    }
+
+    .prdImg > a {
+        display: block;
+        height: 210px;
+    }
+
+    .prd_more ul li .likeButton > button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        background-color: #fff;
+        font-size: 10px;
+    }
+
+    .prd_more ul li .likeButton > button > img {
+        filter: brightness(0);
+        width: 10px;
+        vertical-align: middle;
+        line-height: 10px;
+    }
+
+    .prd_more ul li .likeButton > button > span {
+        vertical-align: middle;
+        line-height: 10px;
+    }
+
+    .page_section > ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page_section > ul > li, .page_section > ul > li > a > img {
+        width: 21px;
+        height: 21px;
+    }
+
+    .page_section > ul > li, .page_section > ul > li > a {
+        color: #939393;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .page_section > ul > li:hover {
+        background-color: #f0f2f2;
+    }
+</style>
+<body>
+    <div id="header"></div>
+    <div id="main_content">
+        <div id="content_wrap">
+            <div class="content_title">
+                <h2>하의</h2>
+                <div>
+                    <ul>
+                        <li><a>데님</a></li>
+                        <li><a>슬렉스</a></li>
+                        <li><a>스커트</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content_nav">
+                <div class="content_nav_left">
+                    <a class="on">필터 열기</a>
+                    <a class="off">필터 닫기</a>
+                </div>
+                <div class="content_nav_right">
+                    <div>
+                        상품정렬
+                    </div>
+                </div>
+            </div>
+            <div class="content_section">
+                <div class="main_section">
+                    <ul class="prdList">
+                        <li>
+                            <div class="box">
+                                <div class="thumbnail">
+                                    <div class="info_icon"></div>
+                                    <div class="prdImg">
+                                        <a>
+                                            <img src="../img/clothes/bottoms/bottoms1.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="name">
+                                        <a>부츠컷 슬랙스(2colors)</a>
+                                    </div>
+                                    <ul class="price">
+                                       <li rel="판매가">
+                                            <span>59,000</span>
+                                       </li>
+                                    </ul>
+                                    <div class="prd_more">
+                                        <ul>
+                                            <li class="more_like">
+                                                <div class="likeButton">
+                                                    <button type="button">
+                                                        <img src="../img/favorite.png">
+                                                        <span class="likePrdCount">20</span>
+                                                        <span class="reviewsCount">리뷰 1</span>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="color">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="box">
+                                <div class="thumbnail">
+                                    <div class="info_icon"></div>
+                                    <div class="prdImg">
+                                        <a>
+                                            <img src="../img/clothes/bottoms/bottoms2.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="name">
+                                        <a>롱 부츠컷 슬랙스(3colors)</a>
+                                    </div>
+                                    <ul class="price">
+                                       <li rel="판매가">
+                                            <span>59,900</span>
+                                       </li>
+                                    </ul>
+                                    <div class="prd_more">
+                                        <ul>
+                                            <li class="more_like">
+                                                <div class="likeButton">
+                                                    <button type="button">
+                                                        <img src="../img/favorite.png">
+                                                        <span class="likePrdCount">21</span>
+                                                        <span class="reviewsCount">리뷰 1</span>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="color">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="box">
+                                <div class="thumbnail">
+                                    <div class="info_icon"></div>
+                                    <div class="prdImg">
+                                        <a>
+                                            <img src="../img/clothes/bottoms/bottoms3.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="name">
+                                        <a>미니스커트(2colors)</a>
+                                    </div>
+                                    <ul class="price">
+                                       <li rel="판매가">
+                                            <span>59,900</span>
+                                       </li>
+                                    </ul>
+                                    <div class="prd_more">
+                                        <ul>
+                                            <li class="more_like">
+                                                <div class="likeButton">
+                                                    <button type="button">
+                                                        <img src="../img/favorite.png">
+                                                    </button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="color">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="box">
+                                <div class="thumbnail">
+                                    <div class="info_icon"></div>
+                                    <div class="prdImg">
+                                        <a>
+                                            <img src="../img/clothes/bottoms/bottoms4.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <div class="name">
+                                        <a>[강혜원착용]슬릿 롱 스커트(2colors)</a>
+                                    </div>
+                                    <ul class="price">
+                                       <li rel="판매가">
+                                            <span>59,900</span>
+                                       </li>
+                                    </ul>
+                                    <div class="prd_more">
+                                        <ul>
+                                            <li class="more_like">
+                                                <div class="likeButton">
+                                                    <button type="button">
+                                                        <img src="../img/favorite.png">
+                                                        <span class="likePrdCount">26</span>
+                                                        <span class="reviewsCount">리뷰 1</span>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="color">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page_section">
+                    <ul>
+                        <li><a><img src="../img/btn_page_prev2.svg"></a></li>
+                        <li><a><img src="../img/btn_page_prev.svg"></a></li>
+                        <li><a>1</a></li>
+                        <li><a>2</a></li>
+                        <li><a>3</a></li>
+                        <li><a>4</a></li>
+                        <li><a>5</a></li>
+                        <li><a><img src="../img/btn_page_next.svg"></a></li>
+                        <li><a><img src="../img/btn_page_next2.svg"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <div id="footer"></div>
+</body>
+</html>
